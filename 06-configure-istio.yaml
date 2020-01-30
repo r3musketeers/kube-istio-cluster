@@ -1,0 +1,6 @@
+- hosts: master
+  become_user: renantf
+  tasks:
+
+    - name: configure istio with istioctl
+      shell: istioctl manifest apply --set profile={{ profile }}

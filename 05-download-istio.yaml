@@ -1,0 +1,26 @@
+- hosts: master
+  become_user: renantf
+  tasks:
+
+    - name: download istio script
+      get_url:
+        url: https://istio.io/downloadIstio
+        dest: /users/renantf/downloadIstioCandidate.sh
+        mode: a+x
+      register: istio_script
+    
+    - name: run istio download script
+      shell: sh "{{ istio_script.dest }}"
+
+    - name: remove istio download script
+      file:
+        path: "{{ istio_script.dest }}"
+        state: absent
+
+    - name: append istio binaries path in PATH
+      lineinfile:
+        dest: $HOME/.tcshrc
+        line: setenv PATH ${PATH}:${HOME}/istio-1.4.3/bin
+        state: present
+        regexp: setenv PATH \$\{PATH\}:\$\{HOME\}/istio-1.4.3/bin
+        create: yes
