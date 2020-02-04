@@ -3,7 +3,7 @@ master ansible_host=pc201.emulab.net ansible_user=renantf
 
 [workers]
 worker1 ansible_host=pc202.emulab.net ansible_user=renantf
-worker2 ansible_host=pc204.emulab.net ansible_user=renantf
+worker2 ansible_host=pc203.emulab.net ansible_user=renantf
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

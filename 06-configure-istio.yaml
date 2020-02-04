@@ -1,5 +1,5 @@
 - hosts: master
-  become_user: renantf
+  become_user: "{{ ansible_user }}"
   tasks:
 
     - name: configure istio with istioctl

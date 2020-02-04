@@ -11,8 +11,8 @@
     #     line: 'ubuntu ALL=(ALL) NOPASSWD: ALL'
     #     validate: 'visudo -cf %s'
 
-    - name: set up authorized keys for renantf user
-      authorized_key: user=renantf key="{{item}}"
+    - name: set up authorized keys for {{ ansible_user }} user
+      authorized_key: user="{{ ansible_user }}" key="{{item}}"
       with_file:
         - ~/.ssh/id_rsa.pub
 
