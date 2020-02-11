@@ -1,8 +1,8 @@
 # kube-istio-cluster
 
 In order to prepare a fully configured cluster for our experiments that needs
-to run [Kubernetes](https://kubernetes.io Kubernete's Home Page) and
-[Istio](https://istio.io/ Istio's HomePage), we grouped all
+to run [Kubernetes][https://kubernetes.io Kubernete's Home Page] and
+[Istio][https://istio.io/ Istio's HomePage], we grouped all
 [Ansible](https://www.ansible.com/ Ansible's Home Page) scripts used to
 configure the available nodes.
 
