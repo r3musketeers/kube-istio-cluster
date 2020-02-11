@@ -1,13 +1,13 @@
 # kube-istio-cluster
 
 In order to prepare a fully configured cluster for our experiments that needs
-to run [Kubernetes][https://kubernetes.io Kubernete's Home Page] and
-[Istio][https://istio.io/ Istio's HomePage], we grouped all
-[Ansible](https://www.ansible.com/ Ansible's Home Page) scripts used to
+to run [Kubernetes][kubernetes] and
+[Istio][istio], we grouped all
+[Ansible][ansible] scripts used to
 configure the available nodes.
 
 The nodes used in the experiment are provisioned by the
-[Emulab](https://www.emulab.net Emulab's Home Page) project, which provides
+[Emulab][emulab] project, which provides
 configurable types of nodes and different network topologies for researchers to
 experiement with.
 
@@ -38,6 +38,10 @@ environment variable _ansible_python_interpreter_, which tells _Ansible_ which
 _Python_ interpreter to use.
 
 [h]: ./hosts
+[kubernetes]: https://kubernetes.io
+[istio]: https://istio.io
+[ansible]: https://www.ansible.com
+[emulab]: https://www.emulab.net
 
 ## Usage
 
@@ -88,7 +92,7 @@ in a master node.
 Like the name says, this script will init the master node running the necessary
 steps to this node assume the _ROLE_ master. The master node is the first one to
 be initialized because in it you will install the _SDN_ (Software Defined Network),
-in this case [Flannel](https://github.com/coreos/flannel Flannel's GitHub Page),
+in this case [Flannel][flannel],
 and generate the _join cluster_ command that the workers node will use with a
 generated token to join the cluster.
 
@@ -100,6 +104,8 @@ run the command manually in the master node:
 ssh -p 22 hostuser@host1.example.net
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.txt
 ```
+
+[flannel]: https://github.com/coreos/flannel
 
 ### 04-join-workers.yaml
 
