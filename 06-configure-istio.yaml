@@ -3,4 +3,4 @@
   tasks:
 
     - name: configure istio with istioctl
-      shell: istioctl manifest apply --set profile={{ profile }}
+      shell: istioctl manifest apply --set profile={{ istio_profile }}

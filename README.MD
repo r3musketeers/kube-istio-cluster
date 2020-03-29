@@ -126,17 +126,18 @@ node2.kube-istio.scalablesmr.emulab.net   Ready    <none>   7m55s   v1.17.2
 
 ### 05-download-istio.yaml
 
-`ansible-playbook -i hosts 05-download-istio.yaml`
+`ansible-playbook -i hosts 05-download-istio.yaml -e "istio_version=1.5.1"`
 
-This script downloads the _Istio_ download script, runs and removes it. We also
-append the istio binaries path to the environment variable PATH so we can run
-`istioctl` without informing the executable location everytime.
+This script downloads the _Istio_ download script for the _extra argument_,
+"istio_version" runs and removes it. We also append the istio binaries path to
+the environment variable PATH so we can run `istioctl` without informing the
+executable location everytime.
 
 ### 06-configure-instio.yaml
 
-`ansible-playbook -i hosts 06-configure-istio.yaml`
+`ansible-playbook -i hosts 06-configure-istio.yaml -e "istio_profile=demo"`
 
-Now we are going to install the _istio demo profile_ which is designed to
+Now we are going to install the informed profile, _demo_ which is designed to
 instantiate pods and services to showcase high levels of tracing and logging.
 Such profile is not suitable for performance evaluation.
 

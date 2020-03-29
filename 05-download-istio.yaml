@@ -10,7 +10,7 @@
       register: istio_script
     
     - name: run istio download script
-      shell: sh "{{ istio_script.dest }}"
+      shell: ISTIO_VERSION={{ istio_version }} sh "{{ istio_script.dest }}"
 
     - name: remove istio download script
       file:
@@ -20,7 +20,7 @@
     - name: append istio binaries path in PATH
       lineinfile:
         dest: $HOME/.tcshrc
-        line: setenv PATH ${PATH}:${HOME}/istio-1.5.1/bin
+        line: setenv PATH ${PATH}:${HOME}/istio-{{ istio_version }}/bin
         state: present
-        regexp: setenv PATH \$\{PATH\}:\$\{HOME\}/istio-1.5.1/bin
+        regexp: setenv PATH \$\{PATH\}:\$\{HOME\}/istio-{{ istio_version }}/bin
         create: yes
