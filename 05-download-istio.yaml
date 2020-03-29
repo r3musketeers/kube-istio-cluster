@@ -20,7 +20,7 @@
     - name: append istio binaries path in PATH
       lineinfile:
         dest: $HOME/.tcshrc
-        line: setenv PATH ${PATH}:${HOME}/istio-1.4.3/bin
+        line: setenv PATH ${PATH}:${HOME}/istio-1.5.1/bin
         state: present
-        regexp: setenv PATH \$\{PATH\}:\$\{HOME\}/istio-1.4.3/bin
+        regexp: setenv PATH \$\{PATH\}:\$\{HOME\}/istio-1.5.1/bin
         create: yes
