@@ -1,0 +1,15 @@
+- hosts: master
+  become: yes
+  tasks:
+    - name: create hello-world dir
+      become: yes
+      file:
+        path: /users/{{ ansible_user }}/hello-world
+        state: directory
+        mode: 0755
+    - name: copy hello-world deployment file
+      tags: [ copy ]
+      copy:
+        src: hello-world.yaml
+        dest: /users/{{ ansible_user }}/hello-world/hello-world.yaml
+        owner: "{{ ansible_user }}"
